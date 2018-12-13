@@ -7,7 +7,7 @@
   "excludeProtected": true,
   "excludePrivate": true,
   "mode": "modules",
-  "out": "docs-build",
+  "out": "build/typedoc",
   "theme": "markdown",
   "mdEngine": "gitbook",
   "stripExternal": false,

@@ -11,7 +11,7 @@
   "theme": "markdown",
   "mdEngine": "gitbook",
   "stripExternal": false,
-  "exclude": ["**/index*","**/*.test.ts","src/rpc-web.ts"],
+  "exclude": ["**/*+(index|rpc-web)*","**/*.test.ts"],
   "readme": "README.md",
   "hideGenerator": "true",
   "verbose": true,

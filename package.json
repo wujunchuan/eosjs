@@ -1,19 +1,19 @@
 {
   "name": "eosjs",
-  "version": "20.0.0-beta3",
+  "version": "20.0.0-beta1",
   "description": "Talk to eos API",
   "main": "dist/index.js",
   "scripts": {
-    "prepare": "npm run build",
+    "prepublish": "npm run build",
     "test": "jest",
     "lint": "tslint -c tslint.json src/**/*.ts",
     "lint-fix": "tslint -c tslint.json src/**/*.ts --fix",
     "build": "tsc -p ./tsconfig.json && cp src/ripemd.es5.js dist/ripemd.js",
-    "build-web": "webpack --config webpack.prod.js && webpack --config webpack.debug.js",
+    "build-web": "webpack",
     "clean": "rm -rf dist",
     "docs-init": "sh .docs/scripts/init.sh",
     "docs-build": "sh .docs/scripts/build.sh",
-    "docs-serve": "python -m SimpleHTTPServer",
+    "docs-serve": "sh .docs/scripts/serve.sh",
     "docs-publish": "sh .docs/scripts/publish.sh"
   },
   "author": "block.one",
@@ -23,16 +23,14 @@
     "url": "https://github.com/EOSIO/eosjs.git"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0",
+    "@types/jest": "^23.3.1",
+    "babel-polyfill": "^6.26.0",
     "eosjs-ecc": "^4.0.1",
     "text-encoding": "^0.6.4"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.1",
     "@types/node": "^10.3.1",
-    "@types/text-encoding": "^0.0.35",
     "babel-cli": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1",
     "jest": "^23.5.0",
@@ -49,7 +47,7 @@
   "jest": {
     "automock": false,
     "setupFiles": [
-      "./src/tests/setupJest.js"
+      "./setupJest.js"
     ],
     "moduleFileExtensions": [
       "ts",
@@ -61,7 +59,7 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.json"
+        "tsConfigFile": "tsconfig.json"
       }
     },
     "testRegex": "(/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
